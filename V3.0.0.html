@@ -119,6 +119,7 @@ add('为什么要改？',`<h2>为什么要改？</h2>
 <div class="note wa"><strong>优化边界：</strong>仅涉及 UI 与交互层。以下<strong>不变</strong>：设备功能和能力逻辑 · 后端校验规则 · 数据权限体系 · RPS 独立模块内部命名。</div>`);
 // 4
 add('五大变化',`<h2>五大变化</h2>
+<p class="s1">UI 重构围绕五个维度展开，接下来逐一展开介绍</p>
 <div class="r c5">
   <div class="card b-blue"><h3>风格调整</h3><p style="font-size:.85rem;color:var(--text2)">更平台化<br>更现代化</p></div>
   <div class="card b-cyan"><h3>信息结构</h3><p style="font-size:.85rem;color:var(--text2)">导航 + 概览<br>区域重构</p></div>
@@ -238,9 +239,27 @@ add('批量设备添加',`<h2>批量设备添加</h2>
   <div class="box good"><span class="lbl">新版 — 四步引导</span><p style="font-size:.85rem;color:var(--text2);line-height:1.7;margin-top:.3rem">拆为 4 个独立步骤，用户按顺序走完即可，不需要培训就知道该干什么</p><p style="color:var(--green);margin-top:.4rem;font-size:.8rem">← 跟着步骤走，操作直观无门槛</p></div>
 </div>
 <div class="flow"><div><span class="sn">步骤 1</span><h4>上传文件</h4><p>下载模板填写<br>可跳过直接编辑</p></div><div class="ar">→</div><div><span class="sn">步骤 2</span><h4>编辑设备</h4><p>数据解析校验<br>编辑阶段即校验</p></div><div class="ar">→</div><div><span class="sn">步骤 3</span><h4>初始化配置</h4><p>可选步骤<br>按型号分类控制</p></div><div class="ar">→</div><div><span class="sn">步骤 4</span><h4>完成</h4><p>三色结果展示<br>错误报告下载</p></div></div>`);
-// 14 — divider Part 2
+// 14
+add('设备配置模板选择',`<h2>模板能力扩展至设备配置场景</h2>
+<p class="s2" style="color:var(--amber);font-weight:600;margin-bottom:.4rem">流程优化</p>
+<div class="note" style="margin-bottom:.8rem"><strong>变化：</strong>此前模板仅用于<strong>设备初始化配置阶段</strong>（添加设备时一次性使用）。本次将模板能力<strong>扩展至设备配置场景</strong>，在线设备也可直接套用已验证的配置方案，按需微调后下发，实现配置经验的标准化复用。</div>
+<div class="r c3" style="margin-bottom:.8rem">
+  <div class="card b-amber"><h3>配置复用</h3><p style="font-size:.85rem;color:var(--text2);line-height:1.7">直接继承已验证的配置模板，无需从零开始逐项填写，按需调整即可生效。</p></div>
+  <div class="card b-green"><h3>减少差错</h3><p style="font-size:.85rem;color:var(--text2);line-height:1.7">预置模板参数已经过验证，避免手动填写遗漏或填错，降低人为配置风险。</p></div>
+  <div class="card b-cyan"><h3>统一标准</h3><p style="font-size:.85rem;color:var(--text2);line-height:1.7">同型号设备使用统一模板，确保批量配置的一致性，提升运维管理效率。</p></div>
+</div>
+<div class="r c2" style="margin-bottom:.8rem">
+  <div class="box good"><span class="lbl">单个设备配置</span><p style="font-size:.85rem;color:var(--text2);line-height:1.7;margin-top:.3rem">设备详情 → 配置 → 抽屉中选择模板 → 自动填充表单 → 按需调整 → 下发</p></div>
+  <div class="box good"><span class="lbl">批量设备配置</span><p style="font-size:.85rem;color:var(--text2);line-height:1.7;margin-top:.3rem">选中多台 → Action → 批量配置 → 选择模板 → 自动填充 → 按需调整 → 下发</p></div>
+</div>
+<div class="img-cmp">
+  <div><img src="screenshots/新平台截图/Snipaste_2026-06-04_10-11-21.png" onclick="fs(event)" title="点击查看大图"><div class="cap">单个设备配置 — 抽屉选择模板</div></div>
+  <div><img src="screenshots/新平台截图/Snipaste_2026-06-04_10-12-09.png" onclick="fs(event)" title="点击查看大图"><div class="cap">批量设备配置 — 选择模板</div></div>
+</div>
+<div class="note ok"><strong>价值总结：</strong>将模板能力从初始化阶段延伸至运维阶段，让已验证的配置方案可被持续复用，减少重复配置与人为错误，提高配置一致性，进一步提升设备运维阶段的配置管理效率。</div>`);
+// 15 — divider Part 2
 add('Part 2',dv('Part 2','var(--purple)','Profile 新格式','关键配置统一纳管 · 表单菜单化 · TOML 格式 · 代码编辑器'));
-// 15
+// 16
 add('Profile 新格式',`<h2>Profile 新格式</h2>
 <p class="s1">设备关键配置参数统一纳入 Profile 文件，表单配置菜单化，文本模式支持 TOML 格式</p>
 <div class="r c3" style="margin-bottom:.8rem">
@@ -275,18 +294,18 @@ ip = "192.168.1.100"</div>
   </div>
 </div>
 <div class="note ok"><strong>代码编辑器能力：</strong>语法高亮 · 行号展示 · 实时语法错误提示 · 注释信息辅助填写，显著提升文本模式下的编辑体验。</div>`);
-// 16 — divider Part 3
+// 17 — divider Part 3
 add('Part 3',dv('Part 3','var(--indigo)','其他优化','连接链路 · 配置固化 · 兼容IPC 17位SN · 日语支持'));
-// 17
+// 18
 add('其他优化',`<h2>其他优化内容</h2>
 <div class="card b-indigo" style="margin-bottom:.7rem"><h3>1. 设备列表新增"连接链路"字段</h3><ul style="font-size:.9rem"><li>展示设备联网方式（以太网/WiFi等），根据上报数据展示</li><li>默认收进列设置，需手动勾选 ｜ 仅直连设备 ｜ 悬浮可看 ICCID</li></ul></div>
 <div class="card b-indigo" style="margin-bottom:.7rem"><h3>2. 设备配置固化功能</h3><ul style="font-size:.9rem"><li>上传 .dat 文件时可开启<strong>[配置固化]</strong>，设备重置后自动恢复配置</li><li>仅 .dat 方式可用 ｜ 固化是设备端执行 ｜ 提交时弹窗确认</li><li>涉及：设备添加 / 批量添加 / RPS 创建 / 设备批量配置</li></ul></div>
 <div class="card b-indigo" style="margin-bottom:.7rem"><h3>3. 兼容 IPC 设备 17 位 SN</h3><ul style="font-size:.9rem"><li>设备列表支持识别和展示 IPC 设备的 17 位序列号。</li></ul></div>
 <div class="card b-indigo"><h3>4. 开放平台·私有化 — 系统语言支持日语</h3><ul style="font-size:.9rem"><li>私有化部署中系统语言新增日语选项，覆盖日企及日本市场。</li></ul></div>`);
-// 18
+// 19
 add('常见问题',`<h2>常见问题 FAQ</h2>
 <div class="r c2"><div class="card b-blue"><h3>Q: 导航栏可以收起来吗？</h3><p>可以。状态保存到浏览器，下次登录保持。</p></div><div class="card b-blue"><h3>Q: RPS 功能还在吗？</h3><p>功能不变，只改了名字。RPS模块保留原有命名。</p></div><div class="card b-blue"><h3>Q: 批量添加初始化配置必须填吗？</h3><p>不必须，可选步骤，可直接跳过。</p></div><div class="card b-blue"><h3>Q: 禁用和离线有什么区别？</h3><p><strong>禁用</strong>=订阅到期(系统级)；<strong>离线</strong>=断网(设备级)。</p></div><div class="card b-blue"><h3>Q: 删除设备影响初始化配置吗？</h3><p>会联动删除，操作前有明确提示。</p></div><div class="card b-blue"><h3>Q: 列设置最多几个字段？</h3><p>最少1个，最多15个，默认12个。</p></div></div>`);
-// 19
+// 20
 add('测试环境',`<div style="text-align:center"><h2>欢迎提前体验</h2></div>
 <div style="text-align:center;max-width:600px;margin:0 auto">
   <div class="card b-blue" style="text-align:center;margin-bottom:1rem">
@@ -301,10 +320,10 @@ add('测试环境',`<div style="text-align:center"><h2>欢迎提前体验</h2></
 // ═══ Engine ═══
 const sections=[
   {title:'封面 & 概览',start:0,end:1},
-  {title:'Part 1 — UI 重构',start:2,end:13},
-  {title:'Part 2 — Profile 新格式',start:14,end:15},
-  {title:'Part 3 — 其他优化',start:16,end:17},
-  {title:'FAQ & 环境',start:18,end:19},
+  {title:'Part 1 — UI 重构',start:2,end:14},
+  {title:'Part 2 — Profile 新格式',start:15,end:16},
+  {title:'Part 3 — 其他优化',start:17,end:18},
+  {title:'FAQ & 环境',start:19,end:20},
 ];
 const M={
   0:['','封面'],1:['','迭代概览'],
@@ -312,10 +331,11 @@ const M={
   5:['Part1.UI重构','风格调整'],6:['Part1.UI重构','导航栏调整'],
   7:['Part1.UI重构','新增设备概览区'],
   8:['Part1.UI重构','去专业化概念'],9:['Part1.UI重构','操作效率'],10:['Part1.UI重构','操作效率'],
-  11:['Part1.UI重构','操作效率'],12:['Part1.UI重构','流程优化'],13:['Part1.UI重构','流程优化'],
-  14:['Part2.Profile 新格式','Profile 新格式'],15:['Part2.Profile 新格式','Profile 新格式详情'],
-  16:['Part3.其他优化','其他优化'],17:['Part3.其他优化','连接链路/固化/日语'],
-  18:['','常见问题'],19:['','问题和反馈'],
+  11:['Part1.UI重构','操作效率'],12:['Part1.UI重构','单个设备添加'],13:['Part1.UI重构','批量设备添加'],
+  14:['Part1.UI重构','模板扩展至配置场景'],
+  15:['Part2.Profile 新格式','Profile 新格式'],16:['Part2.Profile 新格式','Profile 新格式详情'],
+  17:['Part3.其他优化','其他优化'],18:['Part3.其他优化','连接链路/固化/日语'],
+  19:['','常见问题'],20:['','问题和反馈'],
 };
 function getSection(i){for(const s of sections){if(i>=s.start&&i<=s.end)return s.title}return''}
 
